@@ -1,13 +1,304 @@
-body {
+/* 
+====== 
+Fonts
+======
+*/
+@import url("https://fonts.googleapis.com/css?family=Catamaran:300,400|Kaushan+Script&display=swap");
+/* 
+====== 
+Variables 
+======
+*/
+:root {
+  /* --primaryColor: #9e3aa3; */
+  /* --primaryDarkColor: #4e1d51; */
+  --primaryColor: #f15025;
+  --primaryDarkColor: #c02c03;
+  --primaryFont: "Catamaran", sans-serif;
+  --slantedFont: "Kaushan Script", cursive;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainBackground: #ececec;
+  --mainOverlay: rgba(35, 10, 36, 0.4);
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --darkGrey: #afafaf;
+  --mainRed: #bd0303;
+  --mainTransition: all 0.3s linear;
+  --mainSpacing: 0.3rem;
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+  --mainBorderRadius: 0.25rem;
+  --smallWidth: 85vw;
+  --maxWidth: 40rem;
+  --fullWidth: 1170px;
+}
+/* 
+====== 
+Global Styles 
+======
+*/
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: var(--primaryFont);
+  color: var(--mainBlack);
+  background: var(--mainBackground);
+  line-height: 1.4;
+  font-size: 1rem;
+  font-weight: 300;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--primaryFont);
+  margin-bottom: 1.25rem;
+  letter-spacing: var(--mainSpacing);
+}
+p {
+  margin-bottom: 1.25rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: var(--mainBlack);
+}
+img {
+  width: 100%;
+  display: block;
+}
+.loading {
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 1.7rem;
+  margin-top: 3rem;
+  letter-spacing: var(--mainSpacing);
+}
+.loading img {
+  width: 10rem;
+  margin: 0 auto;
+}
+/* 
+====== 
+Buttons 
+======
+*/
+.btn,
+.btn-white,
+.btn-primary {
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  color: var(--primaryColor);
+  border: 2px solid var(--primaryColor);
+  padding: 0.45rem 0.8rem;
+  display: inline-block;
+  transition: var(--mainTransition);
+  cursor: pointer;
+  font-size: 0.8rem;
+  background: transparent;
+}
+.btn:hover {
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+}
+.btn-white {
+  background: transparent;
+  color: var(--mainWhite);
+  border-color: var(--mainWhite);
+}
+.btn-white:hover {
+  background: var(--mainWhite);
+  color: var(--primaryColor);
+}
+.btn-primary {
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+  border-color: var(--primaryColor);
+}
+.btn-primary:hover {
+  background: transparent;
+  color: var(--primaryColor);
+}
+.btn-block {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  box-shadow: var(--lightShadow);
+  text-align: center;
+}
+
+.btn-topped {
+  margin: 0.5rem 0 0 1.5rem;
+}
+
+/* 
+====== 
+Product List
+======
+*/
+
+.section {
+  padding: 3rem 0;
+}
+.section-title {
+  font-size: 2rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-title:after {
+  content: ""; /* This is necessary for the pseudo element to work. */
+  display: block; /* This will put the pseudo element on its own line. */
+  margin: 0 auto; /* This will center the border. */
+  width: 40%; /* Change this to whatever width you want. */
+  padding-top: 20px; /* This creates some space between the element and the border. */
+  border-bottom: 2px solid green; /* This creates the border. Replace black with whatever color you want. */
+}
+
+.products-center {
+  width: var(--smallWidth);
+  margin: 0 auto;
+  max-width: var(--fullWidth);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  column-gap: 1.8rem;
+  row-gap: 1.8rem;
+  /* align-items: start; */
+}
+.product {
+  background: var(--mainWhite);
+  margin-bottom: 2rem;
+  box-shadow: var(--lightShadow);
+  transition: var(--mainTransition);
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+.product:hover {
+  box-shadow: var(--darkShadow);
+}
+.img-container {
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.5);
+  position: relative;
+  /* height: 5rem; */
+}
+.product img {
+  transition: var(--mainTransition);
+}
+.product:hover img {
+  opacity: 0.3;
+}
+.product-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: var(--mainTransition);
+}
+.product:hover .product-link {
+  opacity: 1;
+}
+.product-footer {
+  padding: 0rem 1rem 1rem 1rem;
+  text-align: center;
+  letter-spacing: var(--mainSpacing);
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+.product-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.product-price {
+  color: var(--primaryColor);
+  font-weight: bold;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+}
+
+.sale-price {
+  color: var(--primaryColor);
+  font-weight: bold;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  text-decoration: line-through;
+}
+
+/* 
+====== 
+Slides
+======
+*/
+
+.image {
+  height: 500px;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+
+.slides {
+  position: relative;
+}
+
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+
+.slides .slick-prev {
+  left: 5%;
+}
+
+.slides .slick-next {
+  right: 5%;
+}
+
+/* 
+====== 
+Ads placeholder
+======
+*/
+.ads-placeholder {
+  padding: 20px;
+  border: 2px solid green;
+  margin: 0 2rem 3rem 2rem;
+}
+
+.menu-button {
+  padding: 7px;
+  margin: 0.3rem 0 0 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.menu-header {
+  margin: 0.5rem;
+  /* font-size: 4rem; */
+}
+
+.format-menu {
+  display: flex;
 }
