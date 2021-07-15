@@ -284,7 +284,10 @@ Ads placeholder
 .ads-placeholder {
   padding: 20px;
   border: 2px solid green;
-  margin: 0 2rem 3rem 2rem;
+  /* margin: 0 2rem 3rem 2rem; */
+  margin: 0 auto;
+  width: 40%;
+  margin-bottom: 2rem;
 }
 
 .menu-button {

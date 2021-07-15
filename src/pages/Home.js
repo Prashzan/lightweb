@@ -28,14 +28,18 @@ const Home = () => {
     <>
       <Banner />
       <button onClick={removeFilter} className="btn btn-primary btn-topped">
-        Back to all products
+        All products
       </button>
       <Header />
       {saleproduct.length > 0 && <SellingProducts />}
       <SpecialProducts />
       <OtherProducts />
 
-      <Ads title="Ecommerce solution" alt="testimage" img="" />
+      <Ads
+        title="Ecommerce solution"
+        alt="testimage"
+        image="https://i2.wp.com/4spotmarketing.com/wp-content/uploads/Internet-Marketing-SEO-PPC-Infusionsoft-4SpotMarketing_com-8412__Google-Ads-and-Marketing-1_083018.jpg?fit=1100%2C575&ssl=1"
+      />
     </>
   );
 };
